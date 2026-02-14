@@ -146,10 +146,10 @@ Light:
   m_GameObject: {fileID: 215033528}
   m_Enabled: 1
   serializedVersion: 11
-  m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Type: 3
+  m_Color: {r: 0.03773582, g: 0.036159877, b: 0.03186185, a: 1}
+  m_Intensity: 0
+  m_Range: 6.05
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -187,10 +187,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -593,6 +593,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2024146278}
+    - target: {fileID: 8423587331137623561, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: chaseSpeed
+      value: 5.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423587331137623561, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: patrolSpeed
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423587331137623561, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: rotationSpeed
+      value: 15.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8423587331137623561, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
