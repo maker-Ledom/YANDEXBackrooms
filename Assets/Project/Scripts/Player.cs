@@ -12,12 +12,17 @@ public class Player : MonoBehaviour
     public float mouseSensitivity = 2f;
     public float maxLookAngle = 80f; // ограничение взгляда вверх/вниз
 
+    [Header("Flashlight Settings")]
+    public KeyCode flashlightKey = KeyCode.F; // клавиша включения фонарика
+    public Light flashlight; // ссылка на компонент света
+
     private CharacterController controller;
     private Camera playerCamera;
     private Vector3 velocity;
     private bool isGrounded;
 
     private float xRotation = 0f; // для поворота камеры по вертикали
+    private bool isFlashlightOn = true; // состояние фонарика
 
     void Start()
     {
@@ -27,12 +32,26 @@ public class Player : MonoBehaviour
         // Блокируем курсор в центре экрана
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Инициализация фонарика
+        if (flashlight == null)
+        {
+            // Пытаемся найти фонарик автоматически
+            flashlight = GetComponentInChildren<Light>();
+        }
+        
+        // Включаем фонарик при старте
+        if (flashlight != null)
+        {
+            flashlight.enabled = isFlashlightOn;
+        }
     }
 
     void Update()
     {
         HandleMovement();
         HandleMouseLook();
+        HandleFlashlight();
     }
 
     void HandleMovement()
@@ -79,5 +98,32 @@ public class Player : MonoBehaviour
 
         // Поворот по горизонтали (весь персонаж)
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    void HandleFlashlight()
+    {
+        // Проверяем нажатие клавиши для включения/выключения фонарика
+        if (Input.GetKeyDown(flashlightKey))
+        {
+            ToggleFlashlight();
+        }
+    }
+
+    public void ToggleFlashlight()
+    {
+        if (flashlight != null)
+        {
+            isFlashlightOn = !isFlashlightOn;
+            flashlight.enabled = isFlashlightOn;
+        }
+    }
+
+    public void SetFlashlight(bool state)
+    {
+        if (flashlight != null)
+        {
+            isFlashlightOn = state;
+            flashlight.enabled = isFlashlightOn;
+        }
     }
 }
