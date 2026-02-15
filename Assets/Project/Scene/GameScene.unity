@@ -27733,8 +27733,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3277229873462359700, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277229873462359700, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: m_Pitch
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277229873462359700, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277229873462359700, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277229873462359700, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277229873462359700, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3469023865220054688, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
       propertyPath: m_LocalScale.x
@@ -27750,7 +27770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3469023865220054688, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.66
+      value: -1.92
       objectReference: {fileID: 0}
     - target: {fileID: 3469023865220054688, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27758,7 +27778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3469023865220054688, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.752216
+      value: 51.93
       objectReference: {fileID: 0}
     - target: {fileID: 3469023865220054688, guid: 7d93f16fb2c4c43489faff885648540e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -41992,7 +42012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C\n"
+  m_text: "\u2192"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42019,10 +42039,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 49.2
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -130519,7 +130539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8625608784612495686, guid: 7b71d2ef32dd92145a5a5aa0e7e6f009, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.57
+      value: 27.47
       objectReference: {fileID: 0}
     - target: {fileID: 8625608784612495686, guid: 7b71d2ef32dd92145a5a5aa0e7e6f009, type: 3}
       propertyPath: m_LocalPosition.y
@@ -130527,7 +130547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8625608784612495686, guid: 7b71d2ef32dd92145a5a5aa0e7e6f009, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.07
+      value: 21.31
       objectReference: {fileID: 0}
     - target: {fileID: 8625608784612495686, guid: 7b71d2ef32dd92145a5a5aa0e7e6f009, type: 3}
       propertyPath: m_LocalRotation.w

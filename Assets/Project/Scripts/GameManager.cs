@@ -1,8 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Runtime.InteropServices;
 public class GameManager : MonoBehaviour
 {
+    [DllImport("__Internal")] 
+    private static extern void GameReadyJS();
+    [DllImport("__Internal")] 
+    private static extern void ShowFullscreenAdJS();
+        [DllImport("__Internal")] 
+    private static extern void InitEventsJS();
     [Header("Scene Names")]
     [SerializeField] private string menuSceneName = "MenuScene";
     [SerializeField] private string gameSceneName = "GameScene";
@@ -30,6 +36,10 @@ public class GameManager : MonoBehaviour
     {
         // Применяем сохранённое состояние звука при старте
         SetSoundState(!isSoundMuted);
+        #if !UNITY_EDITOR && UNITY_WEBGL
+        GameReadyJS();
+        InitEventsJS();
+        #endif
     }
 
     // ===== Методы для кнопок меню =====

@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Runtime.InteropServices;
 public class UIGamePanel : MonoBehaviour
 {
+        [DllImport("__Internal")] 
+    private static extern void GameReadyJS();
+    [DllImport("__Internal")] 
+    private static extern void ShowFullscreenAdJS();
     [Header("UI References")]
     [SerializeField] private Button soundButton;
     [SerializeField] private Button continueButton;
@@ -87,7 +91,9 @@ public class UIGamePanel : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        #if !UNITY_EDITOR && UNITY_WEBGL
+        ShowFullscreenAdJS();
+        #endif
         if (GameManager.Instance != null)
             GameManager.Instance.LoadMenuScene();
         else
