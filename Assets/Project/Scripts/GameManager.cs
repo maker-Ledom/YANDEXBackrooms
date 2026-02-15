@@ -68,4 +68,18 @@ public class GameManager : MonoBehaviour
     }
     // ===== Свойства для UI =====
     public bool IsSoundMuted => isSoundMuted;
+        public void OnAdOpen()
+    { 
+        AudioListener.pause = true;
+        Time.timeScale = 0f;
+        AudioListener.volume = enabled ? 1f : 0f;
+    }
+
+    public void OnAdClose() 
+    { 
+        Time.timeScale = 1f; 
+        AudioListener.volume = enabled ? 1f : 0f;
+        AudioListener.pause = false;
+    }
+
 }
