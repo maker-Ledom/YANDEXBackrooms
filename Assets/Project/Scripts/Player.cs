@@ -110,11 +110,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
-        HandleMouseLook();
-        HandleFlashlight();
-        HandleFootsteps();
-        HandleJumpAndLanding();
+        bool isGameActive = Time.timeScale > 0;
+
+        if (isGameActive)
+        {
+            HandleMovement();
+            HandleMouseLook();   // внутри добавим дополнительную проверку на lock курсора
+            HandleFlashlight();
+            HandleFootsteps();
+            HandleJumpAndLanding();
+        }
     }
 
     void HandleMovement()
@@ -151,16 +156,14 @@ public class Player : MonoBehaviour
 
     void HandleMouseLook()
     {
-        // Получаем движение мыши
+        if (Cursor.lockState != CursorLockMode.Locked) return;
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        // Поворот по вертикали (камера)
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -maxLookAngle, maxLookAngle);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-        // Поворот по горизонтали (весь персонаж)
         transform.Rotate(Vector3.up * mouseX);
     }
 
@@ -352,8 +355,13 @@ public class Player : MonoBehaviour
         // Ждем 1 секунду
         yield return new WaitForSeconds(1f);
         
-        // Перезагружаем сцену
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.LoadMenuScene();
+        else
+            Debug.LogError("GameManager не найден!");
     }
     private IEnumerator FinishGame()
     {
@@ -367,7 +375,12 @@ public class Player : MonoBehaviour
         // Ждем 1 секунду
         yield return new WaitForSeconds(2f);
         
-        // Перезагружаем сцену
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.LoadMenuScene();
+        else
+            Debug.LogError("GameManager не найден!");
     }
 }
